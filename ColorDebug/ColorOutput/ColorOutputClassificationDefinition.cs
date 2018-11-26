@@ -43,7 +43,31 @@ namespace ColorDebug.ColorOutput
 
         [Export(typeof(ClassificationTypeDefinition))]
         [Name("RemoveSubscribtionOutput")]
-        private static ClassificationTypeDefinition removeSubscribtion;
+        private static ClassificationTypeDefinition removeSubscribtionTypeDefinition;
+
+        [Export(typeof(ClassificationTypeDefinition))]
+        [Name("UpdateSolutionOutput")]
+        private static ClassificationTypeDefinition updateTypeDefinition;
+
+        [Export(typeof(ClassificationTypeDefinition))]
+        [Name("SucceedSolutionOutput")]
+        private static ClassificationTypeDefinition succeedTypeDefinition;
+
+        [Export(typeof(ClassificationTypeDefinition))]
+        [Name("FailedSolutionOutput")]
+        private static ClassificationTypeDefinition failedTypeDefinition;
+
+        [Export(typeof(ClassificationTypeDefinition))]
+        [Name("TestFinishedOutput")]
+        private static ClassificationTypeDefinition testFinishedTypeDefinition;
+
+        [Export(typeof(ClassificationTypeDefinition))]
+        [Name("LoadedOutput")]
+        private static ClassificationTypeDefinition loadedTypeDefinition;
+
+        [Export(typeof(ClassificationTypeDefinition))]
+        [Name("UnloadedOutput")]
+        private static ClassificationTypeDefinition unloadedTypeDefinition;
 
 #pragma warning restore 169
     }

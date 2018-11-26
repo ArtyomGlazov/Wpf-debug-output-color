@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace ColorDebug.ColorOutput
 {
@@ -12,6 +13,7 @@ namespace ColorDebug.ColorOutput
         public InformationAboutFormat(string key, string checkedValue, bool isStart, IClassificationType classificationType)
         {
             Key = key;
+            IsStart = isStart;
             CheckedValue = checkedValue;
             ClassificationType = classificationType;
         }
@@ -58,7 +60,8 @@ namespace ColorDebug.ColorOutput
 
         internal bool IsContain(string text, out IClassificationType classificationType)
         {
-            classificationType = (IsStart ? text.StartsWith(CheckedValue) : text.Contains(CheckedValue)) ? ClassificationType : null;
+            classificationType = (IsStart ? Regex.IsMatch(text, "\\A" + CheckedValue) : Regex.IsMatch(text, CheckedValue)) ? ClassificationType : null;
+            //classificationType = (IsStart ? text.StartsWith(CheckedValue) : text.Contains(CheckedValue)) ? ClassificationType : null;
             return classificationType != null;
         }
     }

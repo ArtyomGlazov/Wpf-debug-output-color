@@ -33,12 +33,28 @@ namespace ColorDebug.ColorOutput
             _registryService = registry;
 
             ClassificationTypes = new List<InformationAboutFormat>();
+
             ClassificationTypes.Add(new InformationAboutFormat("Information", "System.Windows.Data Information", true, registry.GetClassificationType("InformationOutput")));
             ClassificationTypes.Add(new InformationAboutFormat("Warning", "System.Windows.Data Warning", true, registry.GetClassificationType("WarningOutput")));
             ClassificationTypes.Add(new InformationAboutFormat("Warning", "System.Windows.ResourceDictionary Warning", true, registry.GetClassificationType("WarningOutput")));
             ClassificationTypes.Add(new InformationAboutFormat("Error", "System.Windows.Data Error", true, registry.GetClassificationType("ErrorOutput")));
+
             ClassificationTypes.Add(new InformationAboutFormat("AddSubscribtion", "Add subscribtion", true, registry.GetClassificationType("AddSubscribtionOutput")));
             ClassificationTypes.Add(new InformationAboutFormat("RemoveSubscribtion", "Remove subscribtion", true, registry.GetClassificationType("RemoveSubscribtionOutput")));
+
+            ClassificationTypes.Add(new InformationAboutFormat("TestFinished", "Run test finished:", true, registry.GetClassificationType("TestFinishedOutput")));
+
+            ClassificationTypes.Add(new InformationAboutFormat("BuildSuccess", @"Build: 0 succeeded, 0 failed, [1-9]+ up-to-date", false, registry.GetClassificationType("UpdateSolutionOutput")));
+            ClassificationTypes.Add(new InformationAboutFormat("BuildSuccess", @"Build: [1-9]+ succeeded, 0 failed, \d+ up-to-date", false, registry.GetClassificationType("SucceedSolutionOutput")));
+            ClassificationTypes.Add(new InformationAboutFormat("BuildFailed", @"Build: \d+ succeeded, [1-9]+ failed", false, registry.GetClassificationType("FailedSolutionOutput")));
+
+            ClassificationTypes.Add(new InformationAboutFormat("ReBuildSuccess", @"(Rebuild All|Clean): 0 succeeded, 0 failed, [1-9]+ skipped", false, registry.GetClassificationType("UpdateSolutionOutput")));
+            ClassificationTypes.Add(new InformationAboutFormat("ReBuildSuccess", @"(Rebuild All|Clean): [1-9]+ succeeded, 0 failed, \d+ skipped", false, registry.GetClassificationType("SucceedSolutionOutput")));
+            ClassificationTypes.Add(new InformationAboutFormat("ReBuildFailed", @"(Rebuild All|Clean): \d+ succeeded, [1-9]+ failed, \d+ skipped", false, registry.GetClassificationType("FailedSolutionOutput")));
+
+            ClassificationTypes.Add(new InformationAboutFormat("Loaded", @"Loaded:", false, registry.GetClassificationType("LoadedOutput")));
+            ClassificationTypes.Add(new InformationAboutFormat("Unloaded", @"Unloaded:", false, registry.GetClassificationType("UnloadedOutput")));
+
             ClassificationTypes.Add(new InformationAboutFormat("Other", "", true, registry.GetClassificationType("OtherOutput")));
         }
         
